@@ -1,6 +1,10 @@
-#include <iostream>
+#include <wx/string.h>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    wxString hello;
+    hello.Printf("Ciao");
+
+    wxPuts(hello);
     return 0;
 }

@@ -4,12 +4,21 @@
 
 #include "MyFrame.h"
 
-MyFrame::MyFrame(const wxString &t): wxFrame(NULL, wxID_ANY, t, wxDefaultPosition, wxSize(1080, 720)) {
+MyFrame::MyFrame(const wxString &t): wxFrame(nullptr, wxID_ANY, t, wxDefaultPosition, wxSize(1080, 720)) {
 
     wxPanel * panel = new wxPanel(this,wxID_ANY);
-    wxButton* button = new wxButton(panel,wxID_EXIT,wxT("Chiudi"),wxPoint(50,50));
+    auto boxSizer = new wxBoxSizer(wxHORIZONTAL);
 
-    Connect(wxID_EXIT, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MyFrame::OnQuit));
-    Center();
+    auto gridSizer = new wxGridSizer(4,4,3,3);
+
+
+    gridSizer->Add(new wxTextCtrl(panel, -1), 1,wxALIGN_CENTER);
+    gridSizer->Add(new wxTextCtrl(panel, -1), 2,wxALIGN_CENTER);
+    gridSizer->Add(new wxTextCtrl(panel,wxID_ANY,wxT("Ciao")),1,wxALIGN_CENTER);
+
+
+    boxSizer->Add(gridSizer, 0, wxEXPAND | wxTOP | wxBOTTOM, 4);
+
+    Centre();
 
 }

@@ -1,12 +1,12 @@
 #include "main.h"
-#include "MyFrame.h"
+#include "MySpreadsheet.h"
 
 IMPLEMENT_APP(MyApp)
 
 
 bool MyApp::OnInit() {
 
-    MyFrame *simple = new MyFrame(wxT("Spreadsheet"));
+    MySpreadsheet *simple = new MySpreadsheet(wxT("Spreadsheet"));
     simple->Show(true);
 
     return true;

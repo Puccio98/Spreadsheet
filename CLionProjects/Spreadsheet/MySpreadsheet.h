@@ -11,9 +11,9 @@ class MySpreadsheet: public wxFrame{
 public:
     explicit MySpreadsheet(const wxString& t,int maxNumCells);
 
-    void OnQuit(wxCommandEvent & WXUNUSED(event)){
-        Close(true);
-    }
+    void handleUpdate(wxCommandEvent & WXUNUSED(event));
+
+    void initializeWindow(int maxNumCells);
 
 
 private:
@@ -22,6 +22,12 @@ private:
     wxGridSizer* gridSizer1;
     wxGridSizer* gridSizer2;
     std::vector <wxTextCtrl*> cells;
+
+    wxStaticText *media;
+    wxStaticText *moda;
+    wxStaticText *max;
+    wxStaticText *min;
+    wxStaticText *sum;
 
 };
 

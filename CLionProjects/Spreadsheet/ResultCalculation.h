@@ -9,18 +9,18 @@
 #include "Observer.h"
 #include "MySpreadsheet.h"
 
-class ResultCalculation: public Observer {
+class ResultCalculation : public Observer {
 public:
-    explicit ResultCalculation(Subject* su);
+    explicit ResultCalculation(MySpreadsheet *su);
 
-    ~ResultCalculation() override ;
+    ~ResultCalculation() override;
 
     void update() override;
 
-
+    void media();
 
 private:
-    Subject* subject;
+    MySpreadsheet *sub;
 };
 
 

@@ -12,7 +12,7 @@
 #include "Subject.h"
 #include "ResultCalculation.h"
 
-class MySpreadsheet: public wxFrame, public Subject{
+class MySpreadsheet: public wxFrame, public Subject {
 public:
     explicit MySpreadsheet(const wxString& t,int maxNumCells);
 

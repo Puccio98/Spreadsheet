@@ -4,14 +4,18 @@
 
 #include "ResultCalculation.h"
 
-ResultCalculation::ResultCalculation(Subject* su): subject(su){
-    subject->addObserver(this);
+ResultCalculation::ResultCalculation(MySpreadsheet* su):sub(su){
+    sub->addObserver(this);
 }
 
 ResultCalculation::~ResultCalculation() {
-    subject->removeObserver(this);
+    sub->removeObserver(this);
 }
 
 void ResultCalculation::update() {
+    media();
+}
 
+void ResultCalculation::media() {
+    (*sub).results[0]->ChangeValue(wxT("23"));
 }

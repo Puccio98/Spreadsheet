@@ -39,11 +39,22 @@ void MySpreadsheet::initializeWindow(int maxNumCells) {
     min = new wxStaticText(panel, wxID_ANY, wxT("Min:"));;
     sum = new wxStaticText(panel, wxID_ANY, wxT("Somma:"));
 
+    results.reserve(5);
+
+    for (int i = 0; i < 5; i++)
+        results.push_back(new wxTextCtrl(panel,wxID_INFO,wxEmptyString,wxDefaultPosition,wxSize(120,30)));
+
     gridSizer2->Add(media, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(moda, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(max, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(min, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(sum, 1, wxALIGN_BOTTOM);
+
+    gridSizer2->Add(results[0],wxALIGN_BOTTOM);
+    gridSizer2->Add(results[1],wxALIGN_BOTTOM);
+    gridSizer2->Add(results[2],wxALIGN_BOTTOM);
+    gridSizer2->Add(results[3],wxALIGN_BOTTOM);
+    gridSizer2->Add(results[4],wxALIGN_BOTTOM);
 
     boxSizer->Add(gridSizer1, 1, wxEXPAND);
     boxSizer->Add(gridSizer2, 1, wxEXPAND);
@@ -52,7 +63,20 @@ void MySpreadsheet::initializeWindow(int maxNumCells) {
 }
 
 void MySpreadsheet::handleUpdate(wxCommandEvent &) {
-    //cells[10]->SetHelpText(wxT());
+    wxString ciao = cells[1]->GetValue();
+    results[1]->ChangeValue(ciao);
+}
+
+void MySpreadsheet::addObserver(const Observer *ob) {
+
+}
+
+void MySpreadsheet::removeObserver(const Observer *ob) {
+
+}
+
+void MySpreadsheet::notify() {
+
 }
 
 

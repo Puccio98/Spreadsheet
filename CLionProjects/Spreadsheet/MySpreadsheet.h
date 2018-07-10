@@ -1,12 +1,16 @@
 //
 // Created by davide on 07/07/18.
 //
-#include <wx/wx.h>
-#include <vector>
-#include "Subject.h"
+
 
 #ifndef SPREADSHEET_MYFRAME_H
 #define SPREADSHEET_MYFRAME_H
+
+#include <wx/wx.h>
+#include <vector>
+#include <list>
+#include "Subject.h"
+#include "ResultCalculation.h"
 
 class MySpreadsheet: public wxFrame, public Subject{
 public:
@@ -16,9 +20,9 @@ public:
 
     void initializeWindow(int maxNumCells);
 
-    void addObserver(const Observer* ob) override;
+    void addObserver(Observer* ob) override;
 
-    void removeObserver(const Observer* ob) override;
+    void removeObserver(Observer* ob) override;
 
     void notify() override;
 
@@ -36,6 +40,8 @@ private:
     wxStaticText *max;
     wxStaticText *min;
     wxStaticText *sum;
+
+    std::list <Observer*> observersList;
 
 };
 

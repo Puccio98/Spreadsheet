@@ -7,9 +7,20 @@
 
 
 #include "Observer.h"
+#include "MySpreadsheet.h"
 
 class ResultCalculation: public Observer {
+public:
+    explicit ResultCalculation(Subject* su);
 
+    ~ResultCalculation() override ;
+
+    void update() override;
+
+
+
+private:
+    Subject* subject;
 };
 
 

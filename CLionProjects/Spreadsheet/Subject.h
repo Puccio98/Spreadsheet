@@ -11,8 +11,8 @@
 class Subject {
 public:
     virtual ~Subject() = default;
-    virtual void addObserver(const Observer* ob) = 0;
-    virtual void removeObserver(const Observer* ob) = 0;
+    virtual void addObserver(Observer* ob) = 0;
+    virtual void removeObserver(Observer* ob) = 0;
     virtual void notify() = 0;
 };
 

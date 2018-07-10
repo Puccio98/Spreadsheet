@@ -27,7 +27,7 @@ void MySpreadsheet::initializeWindow(int maxNumCells) {
     cells.reserve(static_cast <unsigned long int> (maxNumCells));
 
     for (int i = 0; i < maxNumCells; i++) {
-        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30)));
+        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30),0,wxTextValidator(wxFILTER_DIGITS)));
         gridSizer1->Add(cells[i], 1, wxALIGN_LEFT);
     }
 
@@ -63,20 +63,20 @@ void MySpreadsheet::initializeWindow(int maxNumCells) {
 }
 
 void MySpreadsheet::handleUpdate(wxCommandEvent &) {
-    wxString ciao = cells[1]->GetValue();
-    results[1]->ChangeValue(ciao);
+    notify();
 }
 
-void MySpreadsheet::addObserver(const Observer *ob) {
-
+void MySpreadsheet::addObserver(Observer *ob) {
+    observersList.push_back(ob);
 }
 
-void MySpreadsheet::removeObserver(const Observer *ob) {
-
+void MySpreadsheet::removeObserver(Observer *ob) {
+    observersList.remove(ob);
 }
 
 void MySpreadsheet::notify() {
-
+    for(auto it = observersList.begin(); it != observersList.end(); it++)
+        (*it)->update();
 }
 
 

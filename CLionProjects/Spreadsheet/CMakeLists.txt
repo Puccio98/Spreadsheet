@@ -6,5 +6,5 @@ set(wxWidgets_CONFIGURATION mswu)
 find_package(wxWidgets COMPONENTS core base REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-add_executable(Spreadsheet main.cpp main.h MySpreadsheet.cpp MySpreadsheet.h Observer.h ResultCalculation.cpp ResultCalculation.h Subject.h)
+add_executable(Spreadsheet main.cpp main.h Subject.h Observer.h MySpreadsheet.cpp MySpreadsheet.h  ResultCalculation.cpp ResultCalculation.h)
 target_link_libraries(Spreadsheet ${wxWidgets_LIBRARIES})

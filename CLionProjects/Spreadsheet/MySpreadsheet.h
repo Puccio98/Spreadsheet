@@ -13,11 +13,11 @@
 
 class MySpreadsheet: public wxFrame, public Subject {
 public:
-    explicit MySpreadsheet(const wxString& t,int maxNumCells);
+    explicit MySpreadsheet(const wxString& t,int maxNumCells = 60);
 
     void handleUpdate(wxCommandEvent & WXUNUSED(event));
 
-    void initializeWindow(int maxNumCells);
+    void initializeWindow();
 
     void addObserver(Observer* ob) override;
 
@@ -27,6 +27,7 @@ public:
 
     std::vector <wxTextCtrl*> cells;
     std::vector <wxTextCtrl*> results;
+    int numOfCells;
 
 private:
     wxPanel* panel;

@@ -16,8 +16,11 @@ public:
 
     void media();
 
+    void sum();
+
 private:
     MySpreadsheet *subjPtr;
+    double * cellsValues;
 };
 
 

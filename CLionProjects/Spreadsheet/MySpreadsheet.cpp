@@ -6,26 +6,27 @@
 
 
 MySpreadsheet::MySpreadsheet(const wxString &t, int maxNumCells) : wxFrame(nullptr, wxID_ANY, t, wxDefaultPosition, wxSize(720, 480)) {
+    numOfCells = maxNumCells;
     Centre();
     SetMinSize(wxSize(480, 400));
     SetMaxSize(wxSize(860, 600));
 
-    initializeWindow(maxNumCells);
+    initializeWindow();
 
     Connect(wxID_EXECUTE, wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(MySpreadsheet::handleUpdate));
 
 }
 
-void MySpreadsheet::initializeWindow(int maxNumCells) {
+void MySpreadsheet::initializeWindow() {
 
     boxSizer = new wxBoxSizer(wxVERTICAL);
     panel = new wxPanel(this);
     gridSizer1 = new wxGridSizer(10, 6, 0, 0);
 
-    cells.reserve(static_cast <unsigned long int> (maxNumCells));
+    cells.reserve(static_cast <unsigned long int> (numOfCells));
 
-    for (int i = 0; i < maxNumCells; i++) {
-        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30),0,wxTextValidator(wxFILTER_DIGITS)));
+    for (int i = 0; i < numOfCells; i++) {
+        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30),0,wxTextValidator(wxFILTER_NUMERIC)));
         gridSizer1->Add(cells[i], 1, wxALIGN_LEFT);
     }
 
@@ -73,9 +74,9 @@ void MySpreadsheet::removeObserver(Observer *ob) {
 }
 
 void MySpreadsheet::notify() {
-    auto s = static_cast<int>(observersList.size());
+    /*auto s = static_cast<int>(observersList.size());
     wxString str = wxString::Format(wxT("%d"),s);
-    results[1]->ChangeValue(str);
+    results[1]->ChangeValue(str);*/
 
     for (const auto &it : observersList) {
         it->update();

@@ -4,12 +4,12 @@
 
 #include "ResultCalculation.h"
 
-ResultCalculation::ResultCalculation(MySpreadsheet* su):sub(su){
-    sub->addObserver(this);
+ResultCalculation::ResultCalculation(MySpreadsheet* su):subjPtr(su){
+    subjPtr->addObserver(this);
 }
 
 ResultCalculation::~ResultCalculation() {
-    sub->removeObserver(this);
+    subjPtr->removeObserver(this);
 }
 
 void ResultCalculation::update() {
@@ -17,5 +17,6 @@ void ResultCalculation::update() {
 }
 
 void ResultCalculation::media() {
-    (*sub).results[0]->ChangeValue(wxT("23"));
+    (*subjPtr).results[0]->ChangeValue(wxT("1010"));
 }
+

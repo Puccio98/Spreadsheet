@@ -3,6 +3,8 @@
 //
 
 #include <wx/wx.h>
+#include "ResultCalculation.h"
+#include "MySpreadsheet.h"
 
 
 class MyApp: public wxApp {

@@ -1,13 +1,11 @@
 //
 // Created by davide on 07/07/18.
 //
-
-#include <memory.h>
 #include "MySpreadsheet.h"
+#include "ResultCalculation.h"
 
 
-MySpreadsheet::MySpreadsheet(const wxString &t, int maxNumCells) : wxFrame(nullptr, wxID_ANY, t, wxDefaultPosition,
-                                                                           wxSize(720, 480)) {
+MySpreadsheet::MySpreadsheet(const wxString &t, int maxNumCells) : wxFrame(nullptr, wxID_ANY, t, wxDefaultPosition, wxSize(720, 480)) {
     Centre();
     SetMinSize(wxSize(480, 400));
     SetMaxSize(wxSize(860, 600));
@@ -42,7 +40,7 @@ void MySpreadsheet::initializeWindow(int maxNumCells) {
     results.reserve(5);
 
     for (int i = 0; i < 5; i++)
-        results.push_back(new wxTextCtrl(panel,wxID_INFO,wxEmptyString,wxDefaultPosition,wxSize(120,30)));
+        results.push_back(new wxTextCtrl(panel,wxID_EXECUTE,wxEmptyString,wxDefaultPosition,wxSize(120,30)));
 
     gridSizer2->Add(media, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(moda, 1, wxALIGN_BOTTOM);
@@ -75,8 +73,14 @@ void MySpreadsheet::removeObserver(Observer *ob) {
 }
 
 void MySpreadsheet::notify() {
-    for(auto it = observersList.begin(); it != observersList.end(); it++)
-        (*it)->update();
+    auto s = static_cast<int>(observersList.size());
+    wxString str = wxString::Format(wxT("%d"),s);
+    results[1]->ChangeValue(str);
+
+    for (const auto &it : observersList) {
+        it->update();
+
+    }
 }
 
 

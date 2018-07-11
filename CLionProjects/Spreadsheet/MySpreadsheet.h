@@ -10,7 +10,6 @@
 #include <vector>
 #include <list>
 #include "Subject.h"
-#include "ResultCalculation.h"
 
 class MySpreadsheet: public wxFrame, public Subject {
 public:

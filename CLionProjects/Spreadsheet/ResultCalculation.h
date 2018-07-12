@@ -14,9 +14,15 @@ public:
     ~ResultCalculation() override;
     void update() override;
 
-    void media();
+    double sum();
 
-    void sum();
+    void media(double sum);
+
+    void max();
+
+    void min();
+
+    bool checkString(int i);
 
 private:
     MySpreadsheet *subjPtr;

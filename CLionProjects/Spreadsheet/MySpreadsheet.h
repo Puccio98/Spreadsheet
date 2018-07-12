@@ -36,7 +36,7 @@ private:
     wxGridSizer* gridSizer2;
 
     wxStaticText *media;
-    wxStaticText *moda;
+    wxStaticText *mediana;
     wxStaticText *max;
     wxStaticText *min;
     wxStaticText *sum;

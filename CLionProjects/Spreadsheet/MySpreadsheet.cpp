@@ -5,15 +5,17 @@
 #include "ResultCalculation.h"
 
 
-MySpreadsheet::MySpreadsheet(const wxString &t, int maxNumCells) : wxFrame(nullptr, wxID_ANY, t, wxDefaultPosition, wxSize(720, 480)) {
-    numOfCells = maxNumCells;
+MySpreadsheet::MySpreadsheet(const wxString &windowName, int maxNumCells) :
+        wxFrame(nullptr, wxID_ANY, windowName, wxDefaultPosition, wxSize(720, 480)),
+        numOfCells(maxNumCells) {
+
     Centre();
     SetMinSize(wxSize(480, 400));
     SetMaxSize(wxSize(860, 600));
 
     initializeWindow();
 
-    Connect(wxEVT_TEXT, wxTextEventHandler(MySpreadsheet::handleUpdate));
+    Connect(wxEVT_TEXT, wxTextEventHandler(MySpreadsheet::notify));
 
 }
 
@@ -63,10 +65,6 @@ void MySpreadsheet::initializeWindow() {
     panel->SetSizer(boxSizer);
 }
 
-void MySpreadsheet::handleUpdate(wxCommandEvent &) {
-    notify();
-}
-
 void MySpreadsheet::addObserver(Observer *ob) {
     observersList.push_back(ob);
 }
@@ -75,15 +73,9 @@ void MySpreadsheet::removeObserver(Observer *ob) {
     observersList.remove(ob);
 }
 
-void MySpreadsheet::notify() {
-    /*auto s = static_cast<int>(observersList.size());
-    wxString str = wxString::Format(wxT("%d"),s);
-    results[1]->ChangeValue(str);*/
-
-    for (const auto &it : observersList) {
+void MySpreadsheet::notify(wxCommandEvent &) {
+    for (const auto &it : observersList)
         it->update();
-
-    }
 }
 
 

@@ -22,6 +22,8 @@ public:
 
     void min();
 
+    void mediana();
+
     bool checkString(int i);
 
 private:

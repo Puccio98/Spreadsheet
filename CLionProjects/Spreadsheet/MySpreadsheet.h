@@ -11,27 +11,27 @@
 #include <list>
 #include "Subject.h"
 
-class MySpreadsheet: public wxFrame, public Subject {
+class MySpreadsheet : public wxFrame, public Subject {
 public:
-    explicit MySpreadsheet(const wxString& windowName,int maxNumCells = 60);
+    explicit MySpreadsheet(const wxString &windowName, int maxNumCells = 60);
 
     void initializeWindow();
 
-    void addObserver(Observer* ob) override;
+    void addObserver(Observer *ob) override;
 
-    void removeObserver(Observer* ob) override;
+    void removeObserver(Observer *ob) override;
 
     void notify(wxCommandEvent & WXUNUSED(event)) override;
 
-    std::vector <wxTextCtrl*> cells;
-    std::vector <wxTextCtrl*> results;
+    std::vector<wxTextCtrl *> cells;
+    std::vector<wxTextCtrl *> results;
     int numOfCells;
 
 private:
-    wxPanel* panel;
-    wxBoxSizer* boxSizer;
-    wxGridSizer* gridSizer1;
-    wxGridSizer* gridSizer2;
+    wxPanel *panel;
+    wxBoxSizer *boxSizer;
+    wxGridSizer *gridSizer1;
+    wxGridSizer *gridSizer2;
 
     wxStaticText *media;
     wxStaticText *mediana;
@@ -39,10 +39,9 @@ private:
     wxStaticText *min;
     wxStaticText *sum;
 
-    std::list <Observer*> observersList;
+    std::list<Observer *> observersList;
 
 };
-
 
 
 #endif //SPREADSHEET_MYFRAME_H

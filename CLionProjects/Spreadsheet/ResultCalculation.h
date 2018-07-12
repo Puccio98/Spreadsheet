@@ -12,6 +12,7 @@ public:
     explicit ResultCalculation(MySpreadsheet *su);
 
     ~ResultCalculation() override;
+
     void update() override;
 
     double sum();
@@ -28,7 +29,7 @@ public:
 
 private:
     MySpreadsheet *subjPtr;
-    double * cellsValues;
+    double *cellsValues;
 };
 
 

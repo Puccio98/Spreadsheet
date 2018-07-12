@@ -44,7 +44,7 @@ double ResultCalculation::sum() {
             b = false;
         }
 
-    if(!b) {
+    if (!b) {
         wxString str = wxString::Format(wxT("%lf"), sum);
         subjPtr->results[0]->ChangeValue(str);
 
@@ -111,10 +111,10 @@ void ResultCalculation::min() {
         }
     }
 
-    if (!b){
-        for(int i = 0; i < subjPtr->numOfCells; i++){
-            if(checkString(i)){
-                if(cellsValues[i] < min)
+    if (!b) {
+        for (int i = 0; i < subjPtr->numOfCells; i++) {
+            if (checkString(i)) {
+                if (cellsValues[i] < min)
                     min = cellsValues[i];
             }
         }
@@ -126,28 +126,28 @@ void ResultCalculation::min() {
 
 }
 
-void ResultCalculation::mediana(){
+void ResultCalculation::mediana() {
 
     double mediana = 0;
-    std::vector <double> v;
+    std::vector<double> v;
 
-    for(int i = 0; i < subjPtr->numOfCells;i++)
-        if(checkString(i))
+    for (int i = 0; i < subjPtr->numOfCells; i++)
+        if (checkString(i))
             v.push_back(cellsValues[i]);
 
-    std::sort(v.begin(),v.end());
+    std::sort(v.begin(), v.end());
     unsigned long size = v.size();
 
     if (size == 0)
         subjPtr->results[4]->ChangeValue(wxT("No values"));
 
-    else if(size%2 == 0){
-        mediana = (v[size/2 - 1] + v[size/2])/2;
+    else if (size % 2 == 0) {
+        mediana = (v[size / 2 - 1] + v[size / 2]) / 2;
         wxString str = wxString::Format(wxT("%lf"), mediana);
         subjPtr->results[4]->ChangeValue(str);
 
     } else {
-        mediana = v[size/2];
+        mediana = v[size / 2];
         wxString str = wxString::Format(wxT("%lf"), mediana);
         subjPtr->results[4]->ChangeValue(str);
     }

@@ -28,7 +28,8 @@ void MySpreadsheet::initializeWindow() {
     cells.reserve(static_cast <unsigned long int> (numOfCells));
 
     for (int i = 0; i < numOfCells; i++) {
-        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30),0,wxTextValidator(wxFILTER_NUMERIC)));
+        cells.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(140, 30), 0,
+                                       wxTextValidator(wxFILTER_NUMERIC)));
         gridSizer1->Add(cells[i], 1, wxALIGN_LEFT);
     }
 
@@ -43,7 +44,7 @@ void MySpreadsheet::initializeWindow() {
     results.reserve(5);
 
     for (int i = 0; i < 5; i++)
-        results.push_back(new wxTextCtrl(panel,wxID_EXECUTE,wxEmptyString,wxDefaultPosition,wxSize(120,30)));
+        results.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(120, 30)));
 
     gridSizer2->Add(sum, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(media, 1, wxALIGN_BOTTOM);
@@ -52,12 +53,11 @@ void MySpreadsheet::initializeWindow() {
     gridSizer2->Add(mediana, 1, wxALIGN_BOTTOM);
 
 
-
-    gridSizer2->Add(results[0],wxALIGN_BOTTOM);
-    gridSizer2->Add(results[1],wxALIGN_BOTTOM);
-    gridSizer2->Add(results[2],wxALIGN_BOTTOM);
-    gridSizer2->Add(results[3],wxALIGN_BOTTOM);
-    gridSizer2->Add(results[4],wxALIGN_BOTTOM);
+    gridSizer2->Add(results[0], wxALIGN_BOTTOM);
+    gridSizer2->Add(results[1], wxALIGN_BOTTOM);
+    gridSizer2->Add(results[2], wxALIGN_BOTTOM);
+    gridSizer2->Add(results[3], wxALIGN_BOTTOM);
+    gridSizer2->Add(results[4], wxALIGN_BOTTOM);
 
     boxSizer->Add(gridSizer1, 1, wxEXPAND);
     boxSizer->Add(gridSizer2, 1, wxEXPAND);
@@ -77,5 +77,3 @@ void MySpreadsheet::notify(wxCommandEvent &) {
     for (const auto &it : observersList)
         it->update();
 }
-
-

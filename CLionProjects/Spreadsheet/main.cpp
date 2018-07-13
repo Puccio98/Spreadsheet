@@ -1,18 +1,7 @@
-#include <gtest/gtest.h>
 #include "main.h"
 
-IMPLEMENT_APP_NO_MAIN(MyApp)
 
-int main(){
-    int argc = 0;
-    char* argv = nullptr;
-    return wxEntry(argc, &argv);
-}
-
-/*int main(int argc,char* argv[]){
-    testing::InitGoogleTest(&argc ,argv);
-    return RUN_ALL_TESTS();
-}*/
+IMPLEMENT_APP(MyApp)
 
 bool MyApp::OnInit() {
 

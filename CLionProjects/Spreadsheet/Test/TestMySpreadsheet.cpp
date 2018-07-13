@@ -7,16 +7,10 @@
 #include "../main.h"
 
 
-class MySpreadsheetSuite : public testing::Test{
-public:
-    void SetUp() override {
 
-    }
-};
+TEST(MySpreadsheetSuite,MySpreadsheetConstructor){
 
-TEST_F(MySpreadsheetSuite,MySpreadsheetConstructor){
-
-    std::unique_ptr<MySpreadsheet> ptr (new MySpreadsheet(wxT("window")));
+    wxSharedPtr<MySpreadsheet> ptr (new MySpreadsheet(wxT("window")));
     ASSERT_EQ(wxSize(720,480),ptr->GetSize());
 
 

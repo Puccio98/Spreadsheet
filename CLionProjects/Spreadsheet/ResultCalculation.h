@@ -5,11 +5,12 @@
 #ifndef SPREADSHEET_DATACALCULATION_H
 #define SPREADSHEET_DATACALCULATION_H
 
+#include <memory>
 #include "MySpreadsheet.h"
 
 class ResultCalculation : public Observer {
 public:
-    explicit ResultCalculation(MySpreadsheet *su);
+    explicit ResultCalculation(wxSharedPtr <MySpreadsheet> su);
 
     ~ResultCalculation() override;
 
@@ -28,7 +29,7 @@ public:
     bool checkString(int i);
 
 private:
-    MySpreadsheet *subjPtr;
+    wxSharedPtr <MySpreadsheet> subjPtr;
     double *cellsValues;
 };
 

@@ -12,6 +12,7 @@ ResultCalculation::ResultCalculation(const wxSharedPtr<MySpreadsheet> su) : subj
 
 ResultCalculation::~ResultCalculation() {
     subjPtr->removeObserver(this);
+    delete[] cellsValues;
 }
 
 void ResultCalculation::update() {

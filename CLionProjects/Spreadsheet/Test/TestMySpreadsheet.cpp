@@ -9,10 +9,8 @@
 
 
 TEST(MySpreadsheetSuite,MySpreadsheetConstructor){
-
-    wxSharedPtr<MySpreadsheet> ptr (new MySpreadsheet(wxT("window")));
-    ASSERT_EQ(wxSize(720,480),ptr->GetSize());
-
+    wxSharedPtr <MySpreadsheet> ptr (new MySpreadsheet(("Window"),10));
+    ASSERT_EQ(ptr->cells[0]->GetValue(),wxEmptyString);
 
 }
 

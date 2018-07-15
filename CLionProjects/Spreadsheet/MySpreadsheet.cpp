@@ -77,3 +77,4 @@ void MySpreadsheet::notify(wxCommandEvent &) {
     for (const auto &it : observersList)
         it->update();
 }
+

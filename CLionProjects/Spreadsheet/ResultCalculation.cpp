@@ -7,6 +7,8 @@
 
 ResultCalculation::ResultCalculation(MySpreadsheet* su) : subjPtr(su) {
     cellsValues = new double[subjPtr->numOfCells];
+    for(int i = 0; i < subjPtr->numOfCells;i++)
+        cellsValues[i] = 0;
     subjPtr->addObserver(this);
 }
 

@@ -10,7 +10,7 @@
 
 class ResultCalculation : public Observer {
 public:
-    explicit ResultCalculation(MySpreadsheet* su);
+    explicit ResultCalculation(MySpreadsheet *su);
 
     ~ResultCalculation() override;
 
@@ -32,7 +32,7 @@ private:
 
     void mediana();
 
-    MySpreadsheet* subjPtr;
+    MySpreadsheet *subjPtr;
     double *cellsValues;
 };
 

@@ -6,8 +6,8 @@
 #include "ResultCalculation.h"
 
 ResultCalculation::ResultCalculation(MySpreadsheet* su) : subjPtr(su) {
-    cellsValues = new double[subjPtr->numOfCells];
-    for(int i = 0; i < subjPtr->numOfCells;i++)
+    cellsValues = new double[subjPtr->getNumOfCells()];
+    for(int i = 0; i < subjPtr->getNumOfCells();i++)
         cellsValues[i] = 0;
     subjPtr->addObserver(this);
 }
@@ -20,7 +20,7 @@ ResultCalculation::~ResultCalculation() {
 void ResultCalculation::update() {
     wxString s;
 
-    for (int i = 0; i < subjPtr->numOfCells; i++) {
+    for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
         s = subjPtr->cells[i]->GetValue();
         s.ToDouble(&cellsValues[i]);
 
@@ -61,7 +61,7 @@ void ResultCalculation::media(double sum) {
 
     int count = 0;
 
-    for (int i = 0; i < subjPtr->numOfCells; i++) {
+    for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
         if (checkString(i))
             count++;
     }
@@ -80,7 +80,7 @@ void ResultCalculation::max() {
     double max = 0;
     bool b = true;
 
-    for (int i = 0; i < subjPtr->numOfCells && b; i++) {
+    for (int i = 0; i < subjPtr->getNumOfCells() && b; i++) {
         if (checkString(i)) {
             max = cellsValues[i];
             b = false;
@@ -88,7 +88,7 @@ void ResultCalculation::max() {
     }
 
     if (!b) {
-        for (int i = 0; i < subjPtr->numOfCells; i++) {
+        for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
             if (checkString(i))
                 if (cellsValues[i] > max)
                     max = cellsValues[i];
@@ -107,7 +107,7 @@ void ResultCalculation::min() {
     double min = 0;
     bool b = true;
 
-    for (int i = 0; i < subjPtr->numOfCells && b; i++) {
+    for (int i = 0; i < subjPtr->getNumOfCells() && b; i++) {
         if (checkString(i)) {
             min = cellsValues[i];
             b = false;
@@ -115,7 +115,7 @@ void ResultCalculation::min() {
     }
 
     if (!b) {
-        for (int i = 0; i < subjPtr->numOfCells; i++) {
+        for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
             if (checkString(i)) {
                 if (cellsValues[i] < min)
                     min = cellsValues[i];
@@ -134,7 +134,7 @@ void ResultCalculation::mediana() {
     double mediana = 0;
     std::vector<double> v;
 
-    for (int i = 0; i < subjPtr->numOfCells; i++)
+    for (int i = 0; i < subjPtr->getNumOfCells(); i++)
         if (checkString(i))
             v.push_back(cellsValues[i]);
 

@@ -25,11 +25,14 @@ public:
 
     const std::list<Observer *> &getObserversList() const;
 
+    int getNumOfCells() const;
+
     std::vector<wxTextCtrl *> cells;
     std::vector<wxTextCtrl *> results;
-    int numOfCells;
 
 private:
+    int numOfCells;
+
     wxPanel *panel;
     wxBoxSizer *boxSizer;
     wxGridSizer *gridSizer1;

@@ -82,3 +82,7 @@ const std::list<Observer *> &MySpreadsheet::getObserversList() const {
     return observersList;
 }
 
+int MySpreadsheet::getNumOfCells() const {
+    return numOfCells;
+}
+

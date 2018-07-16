@@ -11,7 +11,7 @@ TEST(MySpreadsheetSuite, testingConstructor) {
 
     auto ptr = dynamic_cast<MySpreadsheet *> (wxTheApp->GetTopWindow());
     ASSERT_EQ(ptr->GetSize(), wxSize(720, 480));
-    ASSERT_EQ(ptr->numOfCells, 60);
+    ASSERT_EQ(ptr->getNumOfCells(), 60);
     ASSERT_EQ(ptr->cells[0]->GetValue(), wxEmptyString);
 
 }

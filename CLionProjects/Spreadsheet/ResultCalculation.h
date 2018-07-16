@@ -16,6 +16,12 @@ public:
 
     void update() override;
 
+    bool checkString(int i);
+
+    double *getCellsValues() const;
+
+private:
+
     double sum();
 
     void media(double sum);
@@ -26,9 +32,6 @@ public:
 
     void mediana();
 
-    bool checkString(int i);
-
-private:
     MySpreadsheet* subjPtr;
     double *cellsValues;
 };

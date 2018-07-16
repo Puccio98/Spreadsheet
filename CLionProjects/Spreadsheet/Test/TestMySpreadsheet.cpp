@@ -7,7 +7,7 @@
 #include "../main.h"
 
 
-TEST(MySpreadsheetSuite, MySpreadsheetConstructor){
+TEST(MySpreadsheetSuite, testingConstructor){
 
     auto ptr = dynamic_cast<MySpreadsheet*> (wxTheApp->GetTopWindow());
     ASSERT_EQ(ptr->GetSize(),wxSize(720,480));
@@ -16,19 +16,19 @@ TEST(MySpreadsheetSuite, MySpreadsheetConstructor){
 
 }
 
-TEST(MySpreadsheetSuite, MySpreadsheetEvent){
+TEST(MySpreadsheetSuite, testingEvent){
 
     auto ptr = dynamic_cast<MySpreadsheet*> (wxTheApp->GetTopWindow());
-    ptr->cells[0]->SetValue(wxT("4"));
+    ptr->cells[0]->SetValue(wxT("4.3"));
 
     double d = 0;
     wxString s = ptr->cells[0]->GetValue();
     s.ToDouble(&d);
-    ASSERT_DOUBLE_EQ(4,d);
+    ASSERT_DOUBLE_EQ(4.3,d);
 
 }
 
-TEST(MySpreadsheetSuite, MySpreadsheetObservers){
+TEST(MySpreadsheetSuite, testingObserversList){
 
     auto ptr = dynamic_cast<MySpreadsheet*> (wxTheApp->GetTopWindow());
     unsigned long int l = ptr->getObserversList().size();

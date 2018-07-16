@@ -164,3 +164,7 @@ bool ResultCalculation::checkString(int i) {
     else
         return false;
 }
+
+double *ResultCalculation::getCellsValues() const {
+    return cellsValues;
+}

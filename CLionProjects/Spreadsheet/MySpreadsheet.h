@@ -23,6 +23,8 @@ public:
 
     void notify(wxCommandEvent & WXUNUSED(event)) override;
 
+    const std::list<Observer *> &getObserversList() const;
+
     std::vector<wxTextCtrl *> cells;
     std::vector<wxTextCtrl *> results;
     int numOfCells;

@@ -10,7 +10,7 @@
 
 class ResultCalculation : public Observer {
 public:
-    explicit ResultCalculation(wxSharedPtr <MySpreadsheet> su);
+    explicit ResultCalculation(MySpreadsheet* su);
 
     ~ResultCalculation() override;
 
@@ -29,7 +29,7 @@ public:
     bool checkString(int i);
 
 private:
-    wxSharedPtr <MySpreadsheet> subjPtr;
+    MySpreadsheet* subjPtr;
     double *cellsValues;
 };
 

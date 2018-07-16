@@ -8,7 +8,10 @@
 
 
 class MyApp: public wxApp {
-    bool OnInit() override;
+public:
+    bool OnInit() override ;
 };
+
+DECLARE_APP(MyApp)
 
 

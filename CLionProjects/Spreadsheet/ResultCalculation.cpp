@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "ResultCalculation.h"
 
-ResultCalculation::ResultCalculation(const wxSharedPtr<MySpreadsheet> su) : subjPtr(su) {
+ResultCalculation::ResultCalculation(MySpreadsheet* su) : subjPtr(su) {
     cellsValues = new double[subjPtr->numOfCells];
     subjPtr->addObserver(this);
 }

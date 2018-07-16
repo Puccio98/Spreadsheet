@@ -5,10 +5,11 @@
 #include "../MySpreadsheet.h"
 #include "../ResultCalculation.h"
 
-TEST(ResultCalculationSuite,testingConstructor){
-    wxSharedPtr<MySpreadsheet> ptr (new MySpreadsheet(("Window"),20));
+TEST(ResultCalculationSuite,testingConstructor) {
+    auto ptr = dynamic_cast<MySpreadsheet*> (wxTheApp->GetTopWindow());
     auto calc = new ResultCalculation(ptr);
-    ptr->cells[0]->SetValue(wxT("5"));
-    ASSERT_TRUE(calc->checkString(0));
+
+    ptr->cells[1]->SetValue(wxT("5"));
+    ASSERT_TRUE(calc->checkString(1));
 }
 

@@ -78,3 +78,7 @@ void MySpreadsheet::notify(wxCommandEvent &) {
         it->update();
 }
 
+const std::list<Observer *> &MySpreadsheet::getObserversList() const {
+    return observersList;
+}
+

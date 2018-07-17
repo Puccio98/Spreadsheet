@@ -7,7 +7,7 @@ find_package(wxWidgets COMPONENTS core base REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 add_subdirectory(Test)
-set(SOURCE_FILES Subject.h Observer.h MySpreadsheet.cpp MySpreadsheet.h Sum.cpp Sum.h Media.cpp Media.h Max.cpp Max.h Min.cpp Min.h)
+set(SOURCE_FILES Subject.h Observer.h MySpreadsheet.cpp MySpreadsheet.h Sum.cpp Sum.h Media.cpp Media.h Max.cpp Max.h Min.cpp Min.h Mediana.cpp Mediana.h)
 add_executable(Spreadsheet main.cpp main.h)
 add_library(core ${SOURCE_FILES})
 target_link_libraries(Spreadsheet ${wxWidgets_LIBRARIES} core)

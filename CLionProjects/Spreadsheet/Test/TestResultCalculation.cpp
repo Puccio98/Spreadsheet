@@ -3,7 +3,7 @@
 //
 #include "gtest/gtest.h"
 #include "../MySpreadsheet.h"
-#include "../ResultCalculation.h"
+
 
 TEST(ResultCalculationSuite, testingConstructor) {
     auto ptr = dynamic_cast<MySpreadsheet *> (wxTheApp->GetTopWindow());

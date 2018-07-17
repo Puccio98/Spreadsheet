@@ -5,7 +5,6 @@
 #ifndef SPREADSHEET_OBSERVER_H
 #define SPREADSHEET_OBSERVER_H
 
-
 class Observer {
 public:
     explicit Observer() = default;
@@ -13,7 +12,6 @@ public:
     virtual ~Observer() = default;
 
     virtual void compute() = 0;
-
 };
 
 

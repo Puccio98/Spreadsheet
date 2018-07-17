@@ -3,8 +3,12 @@
 //
 
 #include <wx/wx.h>
-#include "ResultCalculation.h"
 #include "MySpreadsheet.h"
+#include "Sum.h"
+#include "Media.h"
+#include "Max.h"
+#include "Min.h"
+#include "Mediana.h"
 
 
 class MyApp: public wxApp {

@@ -11,9 +11,9 @@
 
 class Sum: public Observer {
 public:
-    Sum(MySpreadsheet* s);
+    explicit Sum(MySpreadsheet* s);
 
-    virtual ~Sum();
+    ~Sum() override;
 
     void compute() override;
 

@@ -5,33 +5,15 @@
 #include <algorithm>
 #include "ResultCalculation.h"
 
-ResultCalculation::ResultCalculation(MySpreadsheet* su) : subjPtr(su) {
-    cellsValues = new double[subjPtr->getNumOfCells()];
-    for(int i = 0; i < subjPtr->getNumOfCells();i++)
-        cellsValues[i] = 0;
-    subjPtr->addObserver(this);
-}
-
-ResultCalculation::~ResultCalculation() {
-    subjPtr->removeObserver(this);
-    delete[] cellsValues;
-}
 
 void ResultCalculation::update() {
 
 
-    double somma = sum();
     media(somma);
     max();
     min();
     mediana();
 
-}
-
-double ResultCalculation::sum() {
-
-
-    return sum;
 }
 
 void ResultCalculation::media(double sum) {

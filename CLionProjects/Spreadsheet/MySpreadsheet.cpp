@@ -82,7 +82,7 @@ void MySpreadsheet::notify(wxCommandEvent &) {
     wxString s;
     for (int i = 0; i < numOfCells; i++) {
 
-        if (cells[i]->GetValue() == wxEmptyString) {
+        if (cells[i]->GetValue() == wxEmptyString || cells[i]->GetValue() == wxT("-")) {
             cellsValues[i].value = 0;
             cellsValues[i].isEmpty = true;
 

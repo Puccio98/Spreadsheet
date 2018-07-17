@@ -2,13 +2,17 @@
 // Created by davide on 07/07/18.
 //
 #include "MySpreadsheet.h"
-#include "ResultCalculation.h"
+
 
 
 MySpreadsheet::MySpreadsheet(const wxString &windowName, int maxNumCells) :
         wxFrame(nullptr, wxID_ANY, windowName, wxDefaultPosition, wxSize(720, 480)),
-        numOfCells(maxNumCells) {
+        numOfCells(maxNumCells), cellsValues(new cellValue[maxNumCells]) {
 
+    for(int i = 0; i < numOfCells; i++) {
+        cellsValues[i].value = 0;
+        cellsValues[i].isEmpty = true;
+    }
     Centre();
     SetMinSize(wxSize(480, 400));
     SetMaxSize(wxSize(860, 600));
@@ -74,8 +78,23 @@ void MySpreadsheet::removeObserver(Observer *ob) {
 }
 
 void MySpreadsheet::notify(wxCommandEvent &) {
+
+    wxString s;
+    for (int i = 0; i < numOfCells; i++) {
+
+        if (cells[i]->GetValue() == wxEmptyString) {
+            cellsValues[i].value = 0;
+            cellsValues[i].isEmpty = true;
+
+        } else {
+            s = cells[i]->GetValue();
+            s.ToDouble(&cellsValues[i].value);
+            cellsValues[i].isEmpty = false;
+        }
+    }
+
     for (const auto &it : observersList)
-        it->update();
+        it->compute();
 }
 
 const std::list<Observer *> &MySpreadsheet::getObserversList() const {
@@ -84,5 +103,9 @@ const std::list<Observer *> &MySpreadsheet::getObserversList() const {
 
 int MySpreadsheet::getNumOfCells() const {
     return numOfCells;
+}
+
+cellValue *MySpreadsheet::getCellsValues() const {
+    return cellsValues;
 }
 

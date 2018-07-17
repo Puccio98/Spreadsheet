@@ -11,6 +11,11 @@
 #include <list>
 #include "Subject.h"
 
+struct cellValue {
+    double value;
+    bool isEmpty;
+};
+
 class MySpreadsheet : public wxFrame, public Subject {
 public:
     explicit MySpreadsheet(const wxString &windowName, int maxNumCells = 60);
@@ -27,22 +32,27 @@ public:
 
     int getNumOfCells() const;
 
-    std::vector<wxTextCtrl *> cells;
+    cellValue *getCellsValues() const;
+
     std::vector<wxTextCtrl *> results;
 
 private:
-    int numOfCells;
 
-    wxPanel *panel;
-    wxBoxSizer *boxSizer;
-    wxGridSizer *gridSizer1;
-    wxGridSizer *gridSizer2;
+    int numOfCells;
+    cellValue* cellsValues;
+
+    std::vector<wxTextCtrl *> cells;
 
     wxStaticText *media;
     wxStaticText *mediana;
     wxStaticText *max;
     wxStaticText *min;
     wxStaticText *sum;
+
+    wxPanel *panel;
+    wxBoxSizer *boxSizer;
+    wxGridSizer *gridSizer1;
+    wxGridSizer *gridSizer2;
 
     std::list<Observer *> observersList;
 

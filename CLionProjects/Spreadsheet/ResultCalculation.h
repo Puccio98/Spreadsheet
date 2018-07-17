@@ -14,11 +14,8 @@ public:
 
     ~ResultCalculation() override;
 
-    void update() override;
-
     bool checkString(int i);
 
-    double *getCellsValues() const;
 
 private:
 
@@ -32,8 +29,6 @@ private:
 
     void mediana();
 
-    MySpreadsheet *subjPtr;
-    double *cellsValues;
 };
 
 

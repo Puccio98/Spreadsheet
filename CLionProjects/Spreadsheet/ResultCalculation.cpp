@@ -18,15 +18,7 @@ ResultCalculation::~ResultCalculation() {
 }
 
 void ResultCalculation::update() {
-    wxString s;
 
-    for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
-        s = subjPtr->cells[i]->GetValue();
-        s.ToDouble(&cellsValues[i]);
-
-        if (subjPtr->cells[i]->GetValue() == wxEmptyString)
-            cellsValues[i] = 0;
-    }
 
     double somma = sum();
     media(somma);
@@ -38,21 +30,6 @@ void ResultCalculation::update() {
 
 double ResultCalculation::sum() {
 
-    double sum = 0;
-    bool b = true;
-
-    for (int i = 0; i < 60; i++)
-        if (checkString(i)) {
-            sum = sum + cellsValues[i];
-            b = false;
-        }
-
-    if (!b) {
-        wxString str = wxString::Format(wxT("%lf"), sum);
-        subjPtr->results[0]->ChangeValue(str);
-
-    } else
-        subjPtr->results[0]->ChangeValue(wxT("No values"));
 
     return sum;
 }
@@ -167,6 +144,4 @@ bool ResultCalculation::checkString(int i) {
         return false;
 }
 
-double *ResultCalculation::getCellsValues() const {
-    return cellsValues;
-}
+

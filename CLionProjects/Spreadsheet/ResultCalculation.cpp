@@ -8,36 +8,9 @@
 
 void ResultCalculation::update() {
 
-    max();
+
     min();
     mediana();
-
-}
-
-void ResultCalculation::max() {
-
-    double max = 0;
-    bool b = true;
-
-    for (int i = 0; i < subjPtr->getNumOfCells() && b; i++) {
-        if (checkString(i)) {
-            max = cellsValues[i];
-            b = false;
-        }
-    }
-
-    if (!b) {
-        for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
-            if (checkString(i))
-                if (cellsValues[i] > max)
-                    max = cellsValues[i];
-        }
-
-        wxString str = wxString::Format(wxT("%lf"), max);
-        subjPtr->results[2]->ChangeValue(str);
-
-    } else
-        subjPtr->results[2]->ChangeValue(wxT("No values"));
 
 }
 

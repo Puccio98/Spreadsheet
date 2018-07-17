@@ -39,16 +39,11 @@ void MySpreadsheet::initializeWindow() {
 
     gridSizer2 = new wxGridSizer(2, 5, 10, 10);
 
-    media = new wxStaticText(panel, wxID_ANY, wxT("Media:"));
     sum = new wxStaticText(panel, wxID_ANY, wxT("Somma:"));
+    media = new wxStaticText(panel, wxID_ANY, wxT("Media:"));
     max = new wxStaticText(panel, wxID_ANY, wxT("Max:"));
     min = new wxStaticText(panel, wxID_ANY, wxT("Min:"));
     mediana = new wxStaticText(panel, wxID_ANY, wxT("Mediana:"));
-
-    results.reserve(5);
-
-    for (int i = 0; i < 5; i++)
-        results.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(120, 30)));
 
     gridSizer2->Add(sum, 1, wxALIGN_BOTTOM);
     gridSizer2->Add(media, 1, wxALIGN_BOTTOM);
@@ -57,11 +52,17 @@ void MySpreadsheet::initializeWindow() {
     gridSizer2->Add(mediana, 1, wxALIGN_BOTTOM);
 
 
+    results.reserve(5);
+
+    for (int i = 0; i < 5; i++)
+        results.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(120, 30)));
+
     gridSizer2->Add(results[0], wxALIGN_BOTTOM);
     gridSizer2->Add(results[1], wxALIGN_BOTTOM);
     gridSizer2->Add(results[2], wxALIGN_BOTTOM);
     gridSizer2->Add(results[3], wxALIGN_BOTTOM);
     gridSizer2->Add(results[4], wxALIGN_BOTTOM);
+
 
     boxSizer->Add(gridSizer1, 1, wxEXPAND);
     boxSizer->Add(gridSizer2, 1, wxEXPAND);

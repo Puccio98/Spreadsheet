@@ -8,29 +8,9 @@
 
 void ResultCalculation::update() {
 
-
-    media(somma);
     max();
     min();
     mediana();
-
-}
-
-void ResultCalculation::media(double sum) {
-
-    int count = 0;
-
-    for (int i = 0; i < subjPtr->getNumOfCells(); i++) {
-        if (checkString(i))
-            count++;
-    }
-
-    if (count != 0) {
-        double media = sum / count;
-        wxString str = wxString::Format(wxT("%lf"), media);
-        subjPtr->results[1]->ChangeValue(str);
-    } else
-        subjPtr->results[1]->ChangeValue(wxT("No values"));
 
 }
 

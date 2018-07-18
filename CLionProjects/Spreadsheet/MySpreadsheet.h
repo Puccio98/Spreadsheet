@@ -30,13 +30,16 @@ public:
 
     void notify(wxCommandEvent & WXUNUSED(event)) override;
 
-    const std::list<Observer *> &getObserversList() const;
-
     int getNumOfCells() const;
 
     cellValue *getValues() const;
-    
-    std::vector<wxTextCtrl *> results;
+
+    const std::vector<wxTextCtrl *> &getCells() const;
+
+    const std::list<Observer *> &getObserversList() const;
+
+
+    const std::vector<wxTextCtrl *> &getResults() const;
 
 private:
 
@@ -44,11 +47,8 @@ private:
     cellValue* values;
 
     std::vector<wxTextCtrl *> cells;
-public:
-    const std::vector<wxTextCtrl *> &getCells() const;
-
-private:
-
+    std::vector<wxTextCtrl *> results;
+    
     wxStaticText *media;
     wxStaticText *mediana;
     wxStaticText *max;

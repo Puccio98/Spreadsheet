@@ -54,16 +54,11 @@ void MySpreadsheet::initializeWindow() {
 
     results.reserve(5);
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++){
         results.push_back(new wxTextCtrl(panel, wxID_EXECUTE, wxEmptyString, wxDefaultPosition, wxSize(120, 30)));
-
-    gridSizer2->Add(results[0], wxALIGN_BOTTOM);
-    gridSizer2->Add(results[1], wxALIGN_BOTTOM);
-    gridSizer2->Add(results[2], wxALIGN_BOTTOM);
-    gridSizer2->Add(results[3], wxALIGN_BOTTOM);
-    gridSizer2->Add(results[4], wxALIGN_BOTTOM);
-
-
+        gridSizer2->Add(results[i], wxALIGN_BOTTOM);
+    }
+    
     boxSizer->Add(gridSizer1, 1, wxEXPAND);
     boxSizer->Add(gridSizer2, 1, wxEXPAND);
 
@@ -124,9 +119,6 @@ void MySpreadsheet::notify(wxCommandEvent &) {
         it->compute();
 }
 
-const std::list<Observer *> &MySpreadsheet::getObserversList() const {
-    return observersList;
-}
 
 int MySpreadsheet::getNumOfCells() const {
     return numOfCells;
@@ -136,6 +128,16 @@ cellValue *MySpreadsheet::getValues() const {
     return values;
 }
 
+const std::vector<wxTextCtrl *> &MySpreadsheet::getResults() const {
+    return results;
+}
+
+const std::list<Observer *> &MySpreadsheet::getObserversList() const {
+    return observersList;
+}
+
 const std::vector<wxTextCtrl *> &MySpreadsheet::getCells() const {
     return cells;
 }
+
+

@@ -26,7 +26,7 @@ void Max::compute() {
     }
 
     if (b)
-        subjPtr->results[2]->ChangeValue(wxT("No values"));
+        subjPtr->getResults()[2]->ChangeValue(wxT("No values"));
 
     else {
         while (i < subjPtr->getNumOfCells()) {
@@ -38,7 +38,7 @@ void Max::compute() {
         }
 
         wxString str = wxString::Format(wxT("%lf"), max);
-        subjPtr->results[2]->ChangeValue(str);
+        subjPtr->getResults()[2]->ChangeValue(str);
 
     }
 }

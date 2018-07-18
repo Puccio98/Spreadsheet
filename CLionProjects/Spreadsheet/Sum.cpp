@@ -23,12 +23,12 @@ void Sum::compute() {
         }
 
     if (b)
-        subjPtr->results[0]->ChangeValue(wxT("No values"));
+        subjPtr->getResults()[0]->ChangeValue(wxT("No values"));
 
     else {
 
         wxString str = wxString::Format(wxT("%lf"), sum);
-        subjPtr->results[0]->ChangeValue(str);
+        subjPtr->getResults()[0]->ChangeValue(str);
 
     }
 

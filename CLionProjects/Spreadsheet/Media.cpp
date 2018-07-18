@@ -27,8 +27,8 @@ void Media::compute() {
     if (count != 0) {
         double media = sum / count;
         wxString str = wxString::Format(wxT("%lf"), media);
-        subjPtr->results[1]->ChangeValue(str);
+        subjPtr->getResults()[1]->ChangeValue(str);
     } else
-        subjPtr->results[1]->ChangeValue(wxT("No values"));
+        subjPtr->getResults()[1]->ChangeValue(wxT("No values"));
 
 }

@@ -26,7 +26,7 @@ void Min::compute() {
     }
 
     if (b)
-        subjPtr->results[3]->ChangeValue(wxT("No values"));
+        subjPtr->getResults()[3]->ChangeValue(wxT("No values"));
 
     else {
         while (i < subjPtr->getNumOfCells()) {
@@ -38,7 +38,7 @@ void Min::compute() {
         }
 
         wxString str = wxString::Format(wxT("%lf"), min);
-        subjPtr->results[3]->ChangeValue(str);
+        subjPtr->getResults()[3]->ChangeValue(str);
 
     }
 }

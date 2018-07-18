@@ -17,8 +17,8 @@ void Sum::compute() {
     bool b = true;
 
     for (int i = 0; i < 60; i++)
-        if (!subjPtr->getCellsValues()[i].isEmpty) {
-            sum = sum + subjPtr->getCellsValues()[i].value;
+        if (!subjPtr->getValues()[i].isEmpty) {
+            sum = sum + subjPtr->getValues()[i].value;
             b = false;
         }
 
@@ -33,7 +33,4 @@ void Sum::compute() {
     }
 
 }
-
-
-
 

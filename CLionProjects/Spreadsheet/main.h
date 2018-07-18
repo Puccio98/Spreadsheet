@@ -25,5 +25,3 @@ private:
 
 
 DECLARE_APP(MyApp)
-
-

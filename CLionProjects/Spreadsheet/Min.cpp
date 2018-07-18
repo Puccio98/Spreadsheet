@@ -18,8 +18,8 @@ void Min::compute() {
     int i = 0;
 
     while (i < subjPtr->getNumOfCells() && b) {
-        if (!subjPtr->getCellsValues()[i].isEmpty) {
-            min = subjPtr->getCellsValues()[i].value;
+        if (!subjPtr->getValues()[i].isEmpty) {
+            min = subjPtr->getValues()[i].value;
             b = false;
         }
         i++;
@@ -31,9 +31,9 @@ void Min::compute() {
     else {
         while (i < subjPtr->getNumOfCells()) {
 
-            if (!subjPtr->getCellsValues()[i].isEmpty)
-                if (subjPtr->getCellsValues()[i].value < min)
-                    min = subjPtr->getCellsValues()[i].value;
+            if (!subjPtr->getValues()[i].isEmpty)
+                if (subjPtr->getValues()[i].value < min)
+                    min = subjPtr->getValues()[i].value;
             i++;
         }
 

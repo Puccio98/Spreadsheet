@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
 
 bool MyApp::OnInit() {
-
-    MySpreadsheet *ptr(new MySpreadsheet(wxT("Spreadsheet")));
+    
+    ptr = new MySpreadsheet(wxT("Spreadsheet"));
     return true;
 }

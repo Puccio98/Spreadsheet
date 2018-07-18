@@ -18,8 +18,8 @@ void Mediana::compute() {
     std::vector<double> v;
 
     for (int i = 0; i < subjPtr->getNumOfCells(); i++)
-        if (!subjPtr->getCellsValues()[i].isEmpty)
-            v.push_back(subjPtr->getCellsValues()[i].value);
+        if (!subjPtr->getValues()[i].isEmpty)
+            v.push_back(subjPtr->getValues()[i].value);
 
     std::sort(v.begin(), v.end());
     unsigned long size = v.size();

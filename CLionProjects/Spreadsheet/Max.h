@@ -22,5 +22,4 @@ private:
     MySpreadsheet* subjPtr;
 };
 
-
 #endif //SPREADSHEET_MAX_H

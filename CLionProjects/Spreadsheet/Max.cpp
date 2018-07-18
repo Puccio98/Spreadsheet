@@ -18,8 +18,8 @@ void Max::compute() {
     int i = 0;
 
     while (i < subjPtr->getNumOfCells() && b) {
-        if (!subjPtr->getCellsValues()[i].isEmpty) {
-            max = subjPtr->getCellsValues()[i].value;
+        if (!subjPtr->getValues()[i].isEmpty) {
+            max = subjPtr->getValues()[i].value;
             b = false;
         }
         i++;
@@ -31,9 +31,9 @@ void Max::compute() {
     else {
         while (i < subjPtr->getNumOfCells()) {
 
-            if (!subjPtr->getCellsValues()[i].isEmpty)
-                if (subjPtr->getCellsValues()[i].value > max)
-                    max = subjPtr->getCellsValues()[i].value;
+            if (!subjPtr->getValues()[i].isEmpty)
+                if (subjPtr->getValues()[i].value > max)
+                    max = subjPtr->getValues()[i].value;
             i++;
         }
 

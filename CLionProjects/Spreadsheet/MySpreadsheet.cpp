@@ -3,15 +3,15 @@
 //
 #include "MySpreadsheet.h"
 
-
 MySpreadsheet::MySpreadsheet(const wxString &windowName, int maxNumCells) :
         wxFrame(nullptr, wxID_ANY, windowName, wxDefaultPosition, wxSize(720, 480)),
-        numOfCells(maxNumCells), cellsValues(new cellValue[maxNumCells]) {
+        numOfCells(maxNumCells), values(new cellValue[maxNumCells]) {
 
     for(int i = 0; i < numOfCells; i++) {
-        cellsValues[i].value = 0;
-        cellsValues[i].isEmpty = true;
+        values[i].value = 0;
+        values[i].isEmpty = true;
     }
+
     Centre();
     SetMinSize(wxSize(480, 400));
     SetMaxSize(wxSize(860, 600));
@@ -73,7 +73,7 @@ void MySpreadsheet::initializeWindow() {
 
 MySpreadsheet::~MySpreadsheet() {
 
-    delete[] cellsValues;
+    delete[] values;
 
     for(int i = 0;i < numOfCells;i++)
         cells[i]->Destroy();
@@ -88,7 +88,6 @@ MySpreadsheet::~MySpreadsheet() {
     mediana->Destroy();
     max->Destroy();
     min->Destroy();
-
 
     panel->Destroy();
 
@@ -111,13 +110,13 @@ void MySpreadsheet::notify(wxCommandEvent &) {
     for (int i = 0; i < numOfCells; i++) {
 
         if (cells[i]->GetValue() == wxEmptyString || cells[i]->GetValue() == wxT("-")) {
-            cellsValues[i].value = 0;
-            cellsValues[i].isEmpty = true;
+            values[i].value = 0;
+            values[i].isEmpty = true;
 
         } else {
             s = cells[i]->GetValue();
-            s.ToDouble(&cellsValues[i].value);
-            cellsValues[i].isEmpty = false;
+            s.ToDouble(&values[i].value);
+            values[i].isEmpty = false;
         }
     }
 
@@ -133,8 +132,10 @@ int MySpreadsheet::getNumOfCells() const {
     return numOfCells;
 }
 
-cellValue *MySpreadsheet::getCellsValues() const {
-    return cellsValues;
+cellValue *MySpreadsheet::getValues() const {
+    return values;
 }
 
-
+const std::vector<wxTextCtrl *> &MySpreadsheet::getCells() const {
+    return cells;
+}

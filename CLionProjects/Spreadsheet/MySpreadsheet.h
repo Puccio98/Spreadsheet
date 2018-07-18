@@ -34,16 +34,20 @@ public:
 
     int getNumOfCells() const;
 
-    cellValue *getCellsValues() const;
-
+    cellValue *getValues() const;
+    
     std::vector<wxTextCtrl *> results;
 
 private:
 
     int numOfCells;
-    cellValue* cellsValues;
+    cellValue* values;
 
     std::vector<wxTextCtrl *> cells;
+public:
+    const std::vector<wxTextCtrl *> &getCells() const;
+
+private:
 
     wxStaticText *media;
     wxStaticText *mediana;

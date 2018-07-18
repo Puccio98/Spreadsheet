@@ -8,17 +8,19 @@ Media::Media(MySpreadsheet* s): subjPtr(s) {
     subjPtr->addObserver(this);
 }
 
+
 Media::~Media() {
     subjPtr->removeObserver(this);
 }
+
 
 void Media::compute() {
     double sum = 0;
     int count = 0;
 
     for (int i = 0; i < 60; i++)
-        if (!subjPtr->getCellsValues()[i].isEmpty) {
-            sum = sum + subjPtr->getCellsValues()[i].value;
+        if (!subjPtr->getValues()[i].isEmpty) {
+            sum = sum + subjPtr->getValues()[i].value;
             count++;
         }
 

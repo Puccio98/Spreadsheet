@@ -10,11 +10,19 @@
 #include "Min.h"
 #include "Mediana.h"
 
-
 class MyApp: public wxApp {
 public:
     bool OnInit() override ;
+
+private:
+    MySpreadsheet* ptr;
+    Sum* sum;
+    Media* media;
+    Mediana* mediana;
+    Max* max;
+    Min* min;
 };
+
 
 DECLARE_APP(MyApp)
 

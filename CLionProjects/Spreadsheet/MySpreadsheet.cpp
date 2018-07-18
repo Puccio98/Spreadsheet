@@ -4,7 +4,6 @@
 #include "MySpreadsheet.h"
 
 
-
 MySpreadsheet::MySpreadsheet(const wxString &windowName, int maxNumCells) :
         wxFrame(nullptr, wxID_ANY, windowName, wxDefaultPosition, wxSize(720, 480)),
         numOfCells(maxNumCells), cellsValues(new cellValue[maxNumCells]) {
@@ -22,6 +21,7 @@ MySpreadsheet::MySpreadsheet(const wxString &windowName, int maxNumCells) :
     Connect(wxEVT_TEXT, wxTextEventHandler(MySpreadsheet::notify));
 
 }
+
 
 void MySpreadsheet::initializeWindow() {
 
@@ -70,6 +70,33 @@ void MySpreadsheet::initializeWindow() {
     panel->SetSizer(boxSizer);
 }
 
+
+MySpreadsheet::~MySpreadsheet() {
+
+    delete[] cellsValues;
+
+    for(int i = 0;i < numOfCells;i++)
+        cells[i]->Destroy();
+    cells.clear();
+
+    for(int i = 0; i < 5; i++)
+        results[i]->Destroy();
+    results.clear();
+
+    sum->Destroy();
+    media->Destroy();
+    mediana->Destroy();
+    max->Destroy();
+    min->Destroy();
+
+
+    panel->Destroy();
+
+    observersList.clear();
+
+}
+
+
 void MySpreadsheet::addObserver(Observer *ob) {
     observersList.push_back(ob);
 }
@@ -109,4 +136,5 @@ int MySpreadsheet::getNumOfCells() const {
 cellValue *MySpreadsheet::getCellsValues() const {
     return cellsValues;
 }
+
 

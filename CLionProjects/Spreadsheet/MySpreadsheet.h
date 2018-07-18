@@ -20,6 +20,8 @@ class MySpreadsheet : public wxFrame, public Subject {
 public:
     explicit MySpreadsheet(const wxString &windowName, int maxNumCells = 60);
 
+    ~MySpreadsheet() override;
+
     void initializeWindow();
 
     void addObserver(Observer *ob) override;
